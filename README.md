@@ -8,3 +8,5 @@ Kopiraj `.env.example` u `.env.local`, upiši Supabase URL i publishable key, pa
 npm install
 npm run dev
 ```
+
+Produkcija ide sa grane `main`.
