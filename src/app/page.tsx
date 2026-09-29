@@ -1,69 +1,75 @@
-import Image from "next/image";
+import Link from "next/link";
+import { SiteHeader } from "@/components/site-header";
+
+const steps = [
+  {
+    n: "01",
+    title: "Otvori nalog",
+    text: "Svaki klijent ulazi svojim emailom i vidi samo svoje linkove.",
+  },
+  {
+    n: "02",
+    title: "Zalijepi odredište",
+    text: "Google recenzija, Instagram, meni, katalog. Pravi URL ostaje sakriven iza našeg.",
+  },
+  {
+    n: "03",
+    title: "Stavi link na karticu",
+    text: "Kad neko otvori /r/ link, brojimo posjetu i odmah ga šaljemo dalje.",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
+    <div className="min-h-full">
+      <SiteHeader />
+      <main className="mx-auto grid w-full max-w-5xl gap-10 px-5 py-12 md:grid-cols-[1.2fr_0.8fr] md:py-16">
+        <section>
+          <p className="text-xs tracking-[0.22em] text-muted uppercase">NFC · linkovi · analitika</p>
+          <h1 className="mt-3 max-w-xl font-serif text-5xl leading-[0.95] md:text-7xl">
+            Link koji broji ko ga je otvorio.
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="mt-5 max-w-lg text-lg leading-relaxed text-muted">
+            Na karticu ide NFTBIH link. Posjetilac stigne na Google recenziju ili bilo koji URL,
+            a ti vidiš koliko je puta link otvoren, kada i s kojeg uređaja.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link href="/login" className="rounded-full bg-signal px-5 py-3 text-sm text-white">
+              Otvori nalog
+            </Link>
+            <Link href="/login" className="rounded-full border border-ink px-5 py-3 text-sm">
+              Već imam nalog
+            </Link>
+          </div>
+        </section>
+
+        <aside className="rounded-[2rem] border border-ink bg-ink p-5 text-paper shadow-[8px_8px_0_#e23d12]">
+          <p className="text-xs tracking-[0.18em] text-paper/60 uppercase">Primjer kartice</p>
+          <p className="mt-6 font-serif text-4xl">Google recenzija</p>
+          <p className="mt-4 font-mono text-sm text-[#f3c7b4]">nftbih.ba/r/k7mq2ab</p>
+          <p className="mt-2 text-sm text-paper/70">vodi na Google review link</p>
+          <div className="mt-8 grid grid-cols-2 gap-3">
+            <div className="rounded-2xl bg-white/10 p-3">
+              <p className="text-xs text-paper/60">Otvaranja</p>
+              <p className="font-serif text-4xl">128</p>
+            </div>
+            <div className="rounded-2xl bg-white/10 p-3">
+              <p className="text-xs text-paper/60">Danas</p>
+              <p className="font-serif text-4xl">18</p>
+            </div>
+          </div>
+        </aside>
       </main>
+
+      <section className="mx-auto grid w-full max-w-5xl gap-4 px-5 pb-16 md:grid-cols-3">
+        {steps.map((step) => (
+          <article key={step.n} className="rounded-3xl border border-line bg-card p-5">
+            <p className="font-mono text-xs text-signal">{step.n}</p>
+            <h2 className="mt-3 font-serif text-3xl">{step.title}</h2>
+            <p className="mt-2 text-sm leading-relaxed text-muted">{step.text}</p>
+          </article>
+        ))}
+      </section>
     </div>
   );
 }
