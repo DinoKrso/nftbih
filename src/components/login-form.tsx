@@ -28,7 +28,7 @@ export function LoginForm({ disabled }: { disabled?: boolean }) {
         <button
           type="submit"
           disabled={disabled || signInPending}
-          className="mt-2 rounded-full bg-ink px-4 py-2.5 text-sm text-paper disabled:opacity-50"
+          className="mt-2 min-h-11 rounded-full bg-ink px-4 text-sm text-paper disabled:opacity-50"
         >
           {signInPending ? "Prijava…" : "Prijavi se"}
         </button>
@@ -53,7 +53,7 @@ export function LoginForm({ disabled }: { disabled?: boolean }) {
         <button
           type="submit"
           disabled={disabled || signUpPending}
-          className="mt-2 rounded-full bg-signal px-4 py-2.5 text-sm text-white disabled:opacity-50"
+          className="mt-2 min-h-11 rounded-full bg-signal px-4 text-sm text-white disabled:opacity-50"
         >
           {signUpPending ? "Pravim nalog…" : "Otvori nalog"}
         </button>
@@ -87,7 +87,7 @@ function Field({
         autoComplete={autoComplete}
         minLength={minLength}
         disabled={disabled}
-        className="rounded-2xl border border-line bg-paper px-3 py-2 outline-none focus:border-ink"
+        className="w-full rounded-2xl border border-line bg-paper px-3 py-2 text-base outline-none focus:border-ink"
       />
     </label>
   );

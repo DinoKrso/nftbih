@@ -14,7 +14,7 @@ export function CopyLinkButton({ path }: { path: string }) {
         setCopied(true);
         window.setTimeout(() => setCopied(false), 1600);
       }}
-      className="rounded-full bg-ink px-3 py-1.5 text-sm text-paper"
+      className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-ink px-3 text-sm text-paper sm:w-auto"
     >
       {copied ? "Kopirano" : "Kopiraj link"}
     </button>

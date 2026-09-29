@@ -51,32 +51,34 @@ export default async function LinkAnalyticsPage({
         <Link href="/app" className="text-sm text-muted hover:text-ink">
           Nazad na linkove
         </Link>
-        <h1 className="mt-2 font-serif text-5xl">{link.name}</h1>
-        <p className="mt-2 font-mono text-sm text-signal">/r/{link.slug}</p>
+        <h1 className="mt-2 font-serif text-4xl break-words sm:text-5xl">{link.name}</h1>
+        <p className="mt-2 font-mono text-sm break-all text-signal">/r/{link.slug}</p>
         <p className="mt-1 break-all text-sm text-muted">{link.destination_url}</p>
         <div className="mt-4">
           <CopyLinkButton path={`/r/${link.slug}`} />
         </div>
       </div>
 
-      <section className="rounded-3xl border border-line bg-card p-5">
-        <h2 className="font-serif text-3xl">Zadnjih 14 dana</h2>
-        <div className="mt-5 grid grid-cols-7 gap-2 md:grid-cols-[repeat(14,minmax(0,1fr))]">
-          {days.map((day) => {
-            const count = counts.get(day) ?? 0;
-            return (
-              <div key={day} className="flex flex-col items-center gap-2">
-                <div className="flex h-28 w-full items-end rounded-xl bg-paper">
-                  <div
-                    className="w-full rounded-xl bg-signal"
-                    style={{ height: `${Math.max(6, (count / peak) * 100)}%` }}
-                  />
+      <section className="rounded-3xl border border-line bg-card p-4 sm:p-5">
+        <h2 className="font-serif text-2xl sm:text-3xl">Zadnjih 14 dana</h2>
+        <div className="mt-5 -mx-1 overflow-x-auto px-1 pb-1">
+          <div className="flex w-max gap-2">
+            {days.map((day) => {
+              const count = counts.get(day) ?? 0;
+              return (
+                <div key={day} className="flex w-12 shrink-0 flex-col items-center gap-2">
+                  <div className="flex h-28 w-full items-end rounded-xl bg-paper">
+                    <div
+                      className="w-full rounded-xl bg-signal"
+                      style={{ height: `${Math.max(6, (count / peak) * 100)}%` }}
+                    />
+                  </div>
+                  <p className="text-center text-[10px] text-muted">{dayLabel(day)}</p>
+                  <p className="text-xs">{count}</p>
                 </div>
-                <p className="text-[10px] text-muted">{dayLabel(day)}</p>
-                <p className="text-xs">{count}</p>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </section>
 

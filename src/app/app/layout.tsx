@@ -15,7 +15,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
   return (
     <div className="min-h-full">
       <SiteHeader email={email} />
-      <main className="mx-auto w-full max-w-5xl px-5 py-8">{children}</main>
+      <main className="mx-auto w-full max-w-5xl px-4 py-6 sm:px-5 sm:py-8">{children}</main>
     </div>
   );
 }

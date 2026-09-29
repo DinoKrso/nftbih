@@ -20,7 +20,7 @@ export function NewLinkForm() {
             name="name"
             maxLength={80}
             placeholder="Google recenzija"
-            className="rounded-2xl border border-line bg-paper px-3 py-2 outline-none focus:border-ink"
+            className="w-full rounded-2xl border border-line bg-paper px-3 py-2 text-base outline-none focus:border-ink"
           />
         </label>
         <label className="flex flex-col gap-1 text-sm">
@@ -30,13 +30,13 @@ export function NewLinkForm() {
             name="destination"
             type="url"
             placeholder="https://g.page/r/..."
-            className="rounded-2xl border border-line bg-paper px-3 py-2 outline-none focus:border-ink"
+            className="w-full rounded-2xl border border-line bg-paper px-3 py-2 text-base outline-none focus:border-ink"
           />
         </label>
         <button
           type="submit"
           disabled={pending}
-          className="rounded-full bg-ink px-4 py-2.5 text-sm text-paper disabled:opacity-50"
+          className="min-h-11 rounded-full bg-ink px-4 text-sm text-paper disabled:opacity-50"
         >
           {pending ? "Spremam…" : "Napravi link"}
         </button>

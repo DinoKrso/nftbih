@@ -4,7 +4,7 @@ import { deleteLink } from "@/app/actions";
 
 export function DeleteLinkButton({ id }: { id: string }) {
   return (
-    <form action={deleteLink}>
+    <form action={deleteLink} className="w-full sm:w-auto">
       <input type="hidden" name="id" value={id} />
       <button
         type="submit"
@@ -13,7 +13,7 @@ export function DeleteLinkButton({ id }: { id: string }) {
             event.preventDefault();
           }
         }}
-        className="rounded-full border border-line px-3 py-1.5 text-sm hover:border-signal hover:text-signal"
+        className="inline-flex min-h-11 w-full items-center justify-center rounded-full border border-line px-3 text-sm hover:border-signal hover:text-signal sm:w-auto"
       >
         Obriši
       </button>

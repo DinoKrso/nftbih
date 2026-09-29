@@ -12,10 +12,17 @@
   --color-muted: #6f685c;
 }
 
+html {
+  overflow-x: clip;
+}
+
 body {
   background-color: #f6f1e7;
   color: #16140f;
   background-image: radial-gradient(rgba(22, 20, 15, 0.055) 0.7px, transparent 0.7px);
   background-size: 16px 16px;
   font-family: var(--font-outfit), sans-serif;
+  overflow-x: clip;
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 }
